@@ -10,7 +10,7 @@ import com.algorithm.TreeNode;
 public class Num236 {
 }
 
-class Solution {
+class Solution2 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return null;
