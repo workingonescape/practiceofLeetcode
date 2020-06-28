@@ -1,5 +1,6 @@
 package com.algorithm.swordtooffer;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -12,33 +13,49 @@ public class Num9 {
 }
 
 class CQueue{
-    private Stack<Integer> head;
 
-    private Stack<Integer> tail;
 
-    private int size;
+    private LinkedList<Integer> head;
+
+    private LinkedList<Integer> tail;
 
     public CQueue() {
-        this.head=new Stack<>();
-        this.tail=new Stack<>();
-        this.size=0;
+        this.head = new LinkedList<>();
+        this.tail = new LinkedList<>();
     }
 
     public void appendTail(int value) {
-        this.head.push(value);
-        size++;
+        head.addLast(value);
     }
 
     public int deleteHead() {
-        while(head.size()-1>=0){
-            tail.push(head.pop());
+        if (!tail.isEmpty()) {
+            return tail.removeLast();
         }
-        int val=head.pop();
-
-        while(!tail.isEmpty()){
-            head.push(tail.pop());
+        if (head.isEmpty()) {
+            return -1;
         }
-        size--;
-        return val;
+        while (!head.isEmpty()) {
+            tail.addLast(head.removeLast());
+        }
+        return tail.removeLast();
     }
+
+
+    public static void main(String[] args) {
+        CQueue queue = new CQueue();
+        queue.appendTail(1);
+        queue.appendTail(2);
+        queue.appendTail(3);
+        queue.appendTail(4);
+
+        queue.deleteHead();
+        queue.deleteHead();
+        queue.deleteHead();
+        queue.deleteHead();
+
+        queue.appendTail(5);
+
+    }
+
 }
