@@ -31,8 +31,14 @@ public class Num347 {
         );
 
         for (Integer key : map.keySet()) {
+//            if (queue.size() < k) {
+//                queue.offer(key);
+//            } else if (queue.size() > k && map.get(key) > map.get(queue.peek())) {
+//                queue.poll();
+//                queue.offer(key);
+//            }
             queue.offer(key);
-            if (queue.size() > k && map.get(key) > map.get(queue.peek())) {
+            if (queue.size() > k) {
                 queue.poll();
             }
         }

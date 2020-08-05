@@ -16,7 +16,7 @@ public class Num215 {
         }
 
         //默认最小堆
-        Queue<Integer> queue = new PriorityQueue<>((o1, o2) -> o1 - o2);
+        Queue<Integer> queue = new PriorityQueue<>((o1, o2) -> o2 - o1);
 
         for (int i = 0; i < nums.length; i++) {
             queue.offer(nums[i]);
@@ -25,6 +25,11 @@ public class Num215 {
                 queue.poll();
             }
         }
+
+//        while (k > 1) {
+//            queue.poll();
+//            k--;
+//        }
         return queue.poll();
     }
 
