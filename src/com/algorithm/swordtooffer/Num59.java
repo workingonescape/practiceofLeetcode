@@ -46,8 +46,42 @@ public class Num59 {
         return res;
     }
 
+//    public int[] maxSlidingWindow(int[] nums, int k) {
+//        if(nums==null || nums.length==0 || k<0){
+//            return new int[0];
+//        }
+//
+//
+//        LinkedList<Integer> queue=new LinkedList<>();
+//
+//        int[] res=new int[nums.length-k+1];
+//        int index=0;
+//
+//        for(int i=0;i<nums.length;i++){
+//
+//            //当队列顶部元素小于当前值时
+//            while(!queue.isEmpty() && nums[queue.peekFirst()]<=nums[i]){
+//                queue.pollLast();//全部弹出去
+//            }
+//
+//            //加入到队列中来
+//            queue.addLast(i);
+//
+//            //判断是否已经越过窗口
+//            while( !queue.isEmpty() && queue.peekFirst()<=i-k){
+//                queue.pollFirst();//将顶部元素弹出去
+//            }
+//
+//            //判断窗口是否已经形成
+//            if(i>=k-1){
+//                res[index++]=nums[queue.peekFirst()];
+//            }
+//        }
+//        return res;
+//    }
+
     public static void main(String[] args) {
-        int[] num = {1, 3, -1, -3, 5, 3, 6, 7};
-        new Num59().maxSlidingWindow(num, 3);
+        int[] nums = {7,2,4};
+        new Num59().maxSlidingWindow(nums, 2);
     }
 }

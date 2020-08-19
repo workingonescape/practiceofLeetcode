@@ -32,6 +32,7 @@ public class Num46 {
         return dp[str.length()];
     }
 
+
     public static void main(String[] args) {
         new Num46().translateNum(25);
     }

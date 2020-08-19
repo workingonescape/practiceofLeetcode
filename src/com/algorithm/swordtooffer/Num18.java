@@ -2,6 +2,8 @@ package com.algorithm.swordtooffer;
 
 import com.algorithm.ListNode;
 
+import java.util.List;
+
 /**
  * @author Reece Lin
  * @version 1.00
@@ -18,28 +20,30 @@ public class Num18 {
             return head.next;
         }
 
-        ListNode cur=head;
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        ListNode pre = dummyHead;
+        ListNode cur = pre.next;
 
-        while (cur.next.val != val) {
-            cur=cur.next;
+
+        while (cur != null && cur.next != null) {
+            ListNode next = cur.next;
+            if (cur.val == val) {
+                pre.next = next;
+            }else{
+                pre.next = cur;
+            }
+            pre=pre.next;
+            cur = next;
         }
 
-        cur.next = cur.next.next;
-
-        return head;
-
+        return dummyHead.next;
     }
 
     public static void main(String[] args) {
-        ListNode root = new ListNode(4);
-        root.next = new ListNode(5);
-
-        root.next.next = new ListNode(1);
-
-        root.next.next.next = new ListNode(9);
-
-
-        new Num18().deleteNode(root, 1);
-
+        ListNode head = ListNode.generate(new int[]{4, 5, 1, 9});
+        new Num18().deleteNode(head, 1);
     }
+
+
 }

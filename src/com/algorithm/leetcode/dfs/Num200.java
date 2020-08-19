@@ -1,5 +1,7 @@
 package com.algorithm.leetcode.dfs;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @author Reece Lin
  * @version 1.00
@@ -42,6 +44,15 @@ public class Num200 {
         dfs(grid, i + 1, j);
         dfs(grid, i, j - 1);
         dfs(grid, i, j + 1);
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(6& 16);
+        System.out.println(6 & 31);
+
+        ConcurrentHashMap map = new ConcurrentHashMap<>();
+        map.size();
     }
 
 
